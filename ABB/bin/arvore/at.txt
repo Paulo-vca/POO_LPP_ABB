@@ -1,0 +1,26 @@
+saida de arvores
+
+pre_ordem
+saida01: + * + 3 6 - 4 1 5  - correto
+
+trata raiz,percorre sae,percorre sad.
+ex:abdcef
+
+
+in_ordem
+saida02: 3 + 6 * 4 - 1 + 5
+
+percorre sae,trata raiz, percorre sad.
+ex:bdaecf
+
+
+pos_ordem
+saida03: 3 6 + 4 1 - * 5 +
+
+percorre sae, percorre sad, trata raiz.
+ex:dbefca
+
+ABB grau MAX = 2
+
+Usar recursao fora foundd
+passar como parametro
