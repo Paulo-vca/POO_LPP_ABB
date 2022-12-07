@@ -6,7 +6,7 @@ public class ConnectionFactory {
 
     public static Connection createConnection() {
 
-        String url = "jdbc:mysql://localhost:3306/auladb";
+        String url = "jdbc:mysql://localhost:3306/abb";
         String user = "root";
         String password = "";
  
