@@ -11,6 +11,7 @@ public class App {
         appTree.inserir(16, appTree.root);
         appTree.inserir(18, appTree.root);
         appTree.inserir(5, appTree.root);
+        appTree.inserir(1, appTree.root);
 
         System.out.print("\nDigite um numero: ");
         x = in.nextInt();
