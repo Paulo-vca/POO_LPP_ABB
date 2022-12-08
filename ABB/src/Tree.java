@@ -1,19 +1,26 @@
 public class Tree {
     Node root = null;
 
+    NodeRepository nr;
+
+    public Tree() {
+        this.nr = new NodeRepository();
+    }
+
     public void inserir(int info, Node node) {
         if (node == null) {
             root = new Node(info);
-            // System.out.println("Criando arvore...!\nroot = " + root.info);
+            this.nr.save(root);
             return;
         }
         if (node.info > info) {
             // inserir a esquerda
             if (node.esq == null) {
                 node.esq = new Node(info);
+                this.nr.save(node.esq);
                 return;
             }
- 
+
             // func. recursive
             inserir(info, node.esq);
 
@@ -21,6 +28,7 @@ public class Tree {
             // inserir a direita
             if (node.dir == null) {
                 node.dir = new Node(info);
+                this.nr.save(node.dir);
                 return;
             }
 
@@ -30,103 +38,8 @@ public class Tree {
 
     }
 
-
     public boolean isNode(Node n) {
         return n != null;
-    }
-
-    public boolean procurar(Node node, int valor, boolean found) {
-        boolean retorno = found;
-        // procurar pelo elemento na arvore
-        // quando achar, imprimir se tem filhos e quais são seus filhos
-        if (node == null) {
-            System.out.println("Árvore Vazia!");
-            return false;
-        }
-
-        if (valor == node.info) {
-            System.out.println("Elemento econtrado!");
-            int qto = 0, fEsq = 0, fDir = 0;
-            if (node.esq != null) {
-                qto++;
-                fEsq = node.esq.info;
-            }
-            if (node.dir != null) {
-                qto++;
-                fDir = node.dir.info;
-            }
-            System.out.printf("O elemento " +
-                    node.info + " tem " +
-                    qto + " filhos\n");
-
-            if (fEsq != 0)
-                System.out.println("Filho a esquerda: " + fEsq);
-            if (fDir != 0)
-                System.out.println("Filho a direita: " + fDir);
-
-            return true;
-        }
-
-        if (node.esq != null)
-            retorno = procurar(node.esq, valor, retorno);
-
-        if (node.dir != null)
-            retorno = procurar(node.dir, valor, retorno);
-
-        return retorno;
-
-    }
-
-    public void pre_ordem(Node node) {
-        if (node == null) {
-            System.out.println("Árvore Vazia");
-            return;
-        }
-
-        System.out.println(node.info);
-        if (node.esq != null)
-            pre_ordem(node.esq);
-
-        if (node.dir != null)
-            pre_ordem(node.dir);
-
-        // System.out.println(node.info);
-        // if(isNode(node.esq))
-        // pre_ordem(node.esq);
-
-        // if(isNode(node.dir))
-        // pre_ordem(node.dir);
-
-    }
-
-    public void in_ordem(Node node) {
-        if (node == null) {
-            System.out.println("Árvore Vazia");
-            return;
-        }
-        if (node.esq != null)
-            pre_ordem(node.esq);
-
-        System.out.println(node.info);
-
-        if (node.dir != null)
-            pre_ordem(node.dir);
-
-    }
-
-    public void pos_ordem(Node node) {
-        if (node == null) {
-            System.out.println("Árvore Vazia");
-            return;
-        }
-        if (node.esq != null)
-            pre_ordem(node.esq);
-
-        if (node.dir != null)
-            pre_ordem(node.dir);
-
-        System.out.println(node.info);
-
     }
 
     // imprimir

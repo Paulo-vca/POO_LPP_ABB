@@ -9,7 +9,7 @@ public class ConnectionFactory {
         String url = "jdbc:mysql://localhost:3306/abb";
         String user = "root";
         String password = "";
- 
+
         try {
             // carregar driver do mysql
             Class.forName("com.mysql.cj.jdbc.Driver");
